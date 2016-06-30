@@ -1,0 +1,101 @@
+<!doctype html>
+<html ng-app="MyApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script> 
+    
+    <!-- Angular Material Javascript now available via Google CDN; version 0.9.4 used here -->
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script> 
+
+    <script src="static/list.js"></script>
+    <link rel="stylesheet" href="static/list.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div id="MyApp" ng-controller="mainController" class="container">    <div class="col-md-2"></div>
+
+        <div class="col-md-8 center-block">
+        <!-- begin: LIST OF UNCHECKED ITEMS -->
+        <div id="UncheckedList" class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Unchecked Items: {{getTotalItems()}}</h3>
+            </div>
+            <h4 ng-show="getTotalItems() > 0">Unchecked:</h4>
+            <table ng-form="editForm">
+                <tr ng-repeat="item in items" class="item-unchecked">
+                    <td class="wide-td" ng-hide="item.showMe"><b>amount:</b> {{item.amount}}
+                    </td>
+                    <td ng-show="item.showMe"><b>amount:</b>
+                        <input value="" type="number" placeholder="{{item.amount}}" ng-model="$parent.uncheckedAmount" ng-maxlength="2">
+                    </td>
+                    <td class="wide-td" ng-hide="item.showMe"><b>name:</b> {{item.name}} 
+                    </td>
+                    <td ng-show="item.showMe"><b>name:</b>
+                        <input value="" type="text" placeholder="{{item.name}}" ng-model="$parent.uncheckedName" ng-maxlength="10">
+                    </td>
+                    <td class="wide-td" ng-hide="item.showMe"><b>Dependent on:</b> {{item.dependentOn}}
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng-hide="item.showMe" ng-click="toggleChecked($index)" ng-mouseover="showMessage()" ng-mouseleave="dontShowMessage()" ng-disabled="checkBtnDisabled($index)">check item</button>
+                        <!--<div ng-show="checkBtnDisabled($index) && isShow()">Item has dependencies</div>-->
+                        <!--ng-disabled="checkBtnDisabled($index)"-->
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng-hide="item.showMe" ng-click="editItem($index)">Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng-show="item.showMe" type="submit" ng-click="saveItem($index)" ng-disabled="editForm.$invalid">Save</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng-show="item.showMe" ng-click="editItem($index)">Cancel</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <!-- end: LIST OF ITEMS -->
+
+        <!-- begin: ADD items to the list-->
+        <form id="AddItem" class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Add Item</h3>
+            </div>
+            <div ng-form="amountForm" class="form-group" id="inputField">
+                <input value="1" type="number" placeholder="1" ng-model="itemAmount" ng-maxlength="2" required>
+            </div>
+            <div ng-form="nameForm" class="form-group">
+                <input value="" type="text" placeholder="Name of Item" ng-model="itemName" ng-maxlength="10" required>
+            </div>
+            <div ng-form="dependentForm">
+                <select ng-model="dependent" ng-options="item.name for item in items" required>
+                </select>
+            </div>
+
+            <br/>
+            <button ng-disabled="amountForm.$invalid || nameForm.$invalid || dependentForm.$invalid" type="submit" ng-click="addItem()" class="btn btn-default">Add to list</button>
+        </form>
+        <!-- end: ADD items to the list-->
+        
+        <!-- begin: LIST OF CHECKED ITEMS -->
+        <div id="CheckedList" class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Checked Items: {{getTotalCheckedItems()}}</h3>
+            </div>
+            <h4 ng-show="getTotalCheckedItems() > 0">Checked:</h4>
+            <table>
+                <tr ng-repeat="item in checked" class="item-checked">
+                    <td class="wide-td"><b>amount:</b> {{item.amount}} </td>
+                    <td class="wide-td"><b>name:</b> {{item.name}} </td>
+                    <td> 
+                        <i>this item is checked!</i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- end: LIST OF CHECKED ITEMS -->
+        </div>
+    </div>
+    </body>
+</html>
