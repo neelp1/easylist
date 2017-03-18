@@ -2,14 +2,15 @@
   "name": "easylist",
   "version": "1.0.0",
   "description": "Shopping list app",
-  "main": "list.js",
+  "main": "easy_server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node easy_server.js"
   },
   "author": "Neel Patel",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": ">4.1",
+    "body-parser": "~1.10.1"
   }
 }
