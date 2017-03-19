@@ -14,7 +14,8 @@
 
         //successfully reads json object from file
         $http.get('post.json').success(function(data){
-            
+
+            console.log(JSON.stringify(data))
             data.forEach(function(entry){
                 $scope.items.push({
                     amount: entry.amount,
@@ -110,7 +111,7 @@
 
             if($scope.uncheckedName)
                 $scope.items[index].name = $scope.uncheckedName;
-            
+
             $scope.items[index].showMe = false;
 
             $scope.postData();
@@ -135,7 +136,7 @@
             // })
             // .then(function(response) {
             //     console.log(response);
-            // }, 
+            // },
             // function(response) {
             //     console.log(response);
             // });
@@ -150,7 +151,7 @@
             })
             .then(function(response) {
                 console.log(response);
-            }, 
+            },
             function(response) {
                 console.log(response);
             });

@@ -11,5 +11,3 @@ npm install
 ```
 npm start
 ```
-
-Should open up in your browser.

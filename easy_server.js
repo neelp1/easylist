@@ -20,7 +20,7 @@ app.post('/', function (req, res) {
 
 	var jsonObject = JSON.stringify(req.body);
 	console.log(jsonObject);
-  fs.writeFile(__dirname+"/static/post.json", jsonObject, function(err) {
+  fs.writeFile(__dirname + "/static/post.json", jsonObject, function(err) {
     if(err) {
        return console.log(err);
     }
@@ -32,3 +32,6 @@ app.post('/', function (req, res) {
 app.listen(8888, function () {
   console.log('Example app listening on port 8888!');
 });
+
+//var mongoose = require("mongoose");
+//mongoose.connect("mongodb://localhost:27017/test");
