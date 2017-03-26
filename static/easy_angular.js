@@ -14,9 +14,11 @@
 
         //successfully reads json object from file
         $http.get('post.json').success(function(data){
+            str_data = JSON.stringify(data)
+            parse_data = JSON.parse(str_data)
+            arr_data = parse_data.items
 
-            console.log(JSON.stringify(data))
-            data.forEach(function(entry){
+            arr_data.forEach(function(entry){
                 $scope.items.push({
                     amount: entry.amount,
                     name: entry.name,

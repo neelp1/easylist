@@ -17,9 +17,8 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.post('/', function (req, res) {
-
 	var jsonObject = JSON.stringify(req.body);
-	console.log(jsonObject);
+
   fs.writeFile(__dirname + "/static/post.json", jsonObject, function(err) {
     if(err) {
        return console.log(err);
@@ -33,5 +32,7 @@ app.listen(8888, function () {
   console.log('Example app listening on port 8888!');
 });
 
+
+//docker run -d -p 27017:27017 --name my-mongo mongo
 //var mongoose = require("mongoose");
 //mongoose.connect("mongodb://localhost:27017/test");
