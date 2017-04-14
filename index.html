@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-    <div id="MyApp" ng-controller="mainController" class="container">    <div class="col-md-2"></div>
-
+    <div id="MyApp" ng-controller="mainController" class="container">
+        <div class="col-md-2"></div>
         <div class="col-md-8 center-block">
           <!-- begin: LIST OF UNCHECKED ITEMS -->
           <!-- <div id="UncheckedList" class="panel panel-default">
@@ -60,19 +60,20 @@
               <div class="panel-heading">
                   <h3>Add Item</h3>
               </div>
-              <div ng-form="amountForm" class="form-group" id="inputField">
+              <!-- <div ng-form="amountForm" class="form-group" id="inputField">
                   <input value="1" type="number" placeholder="1" ng-model="itemAmount" ng-maxlength="2" required>
-              </div>
+              </div> -->
               <div ng-form="nameForm" class="form-group">
                   <input value="" type="text" placeholder="Name of Item" ng-model="itemName" ng-maxlength="10" required>
               </div>
-              <div ng-form="dependentForm">
+              <!-- <div ng-form="dependentForm">
                   <select ng-model="dependent" ng-options="item.name for item in items" required>
                   </select>
-              </div>
+              </div> -->
 
               <br/>
-              <button ng-disabled="amountForm.$invalid || nameForm.$invalid || dependentForm.$invalid" type="submit" ng-click="addItem()" class="btn btn-default">Add to list</button>
+              <!-- <button ng-disabled="amountForm.$invalid || nameForm.$invalid || dependentForm.$invalid" type="submit" ng-click="addItem()" class="btn btn-default">Add to list</button> -->
+              <button ng-disabled="nameForm.$invalid" type="submit" ng-click="addItem()" class="btn btn-default">Add to list</button>
           </form>
           <!-- end: ADD items to the list-->
 
