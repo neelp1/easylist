@@ -6,7 +6,7 @@
     function($scope, $http) {
 
         // Item List Arrays
-        $scope.items = {};
+        $scope.items = [];
         // $scope.checked = [];
         // $scope.dependent = {amount:0,name:"no dependency",showMe:false,dependentOn:""};//bound to "dependent" in Angular front end
         // $scope.currentDependent = $scope.dependent;
@@ -40,26 +40,17 @@
           });
         // Add a Item to the list
         $scope.addItem = function(){
+
             // $scope.currentDependent = $scope.dependent.name;
-            // $http.post('/test', $scope.items)
-            //   .success(function(data){
-            //     $scope.items = {};
-            //     $scope.list = data;
-            //     console.log(data);
-            //   })
-            //   .error(function(data) {
-            //     console.log('Error: ' + data);
-            //   });
 
-            
-            // $scope.items.push({
-            //     // amount: $scope.itemAmount,
-            //     name: $scope.itemName
-            //     // showMe: false,
-            //     // dependentOn: $scope.currentDependent
-            // });
+            $scope.items.push({
+                // amount: $scope.itemAmount,
+                name: $scope.itemName
+                // showMe: false,
+                // dependentOn: $scope.currentDependent
+            });
 
-            // $scope.postData();
+            $scope.postData();
 
             // Clear input fields after push
             // $scope.itemAmount = "";
@@ -141,40 +132,33 @@
         // };
         //
         // //POST method after stringyfy
-        // $scope.postData = function(){
-        //     var data = JSON.stringify($scope.items);
-        //
-        //     //console.log(data);
-        //
-        //     //NodeJS http POST
-        //     // $http({
-        //     //     url: 'http://localhost:8888',
-        //     //     method: "POST",
-        //     //     data: data,
-        //     //     header: 'Content-Type: application/json'
-        //     // })
-        //     // .then(function(response) {
-        //     //     console.log(response);
-        //     // },
-        //     // function(response) {
-        //     //     console.log(response);
-        //     // });
-        //
-        //
-        //     //use PHP code to replace nodejs
-        //     $http({
-        //         url: 'http://dependonlist.com/post.json',
-        //         method: "POST",
-        //         data: data,
-        //         header: 'Content-Type: application/json'
-        //     })
-        //     .then(function(response) {
-        //         console.log(response);
-        //     },
-        //     function(response) {
-        //         console.log(response);
-        //     });
-        // };
+        $scope.postData = function(){
+          // var rawData = $scope.items
+          // var data = JSON.stringify(rawData[0]);
+
+          console.log("data: " + $scope.itemName);
+
+          $http.post('http://localhost:8888/test', JSON.stringify({name:$scope.itemName}))
+          .then(function(data){
+            console.log("successful!");
+          })
+          .catch(function(err){
+            console.log("post error");
+          });
+          //NodeJS http POST
+          // $http({
+          //     url: '/test',
+          //     method: 'POST',
+          //     data: data,
+          //     header: 'Content-Type: application/json; charset=utf-8'
+          // })
+          // .then(function(response) {
+          //   console.log(response);
+          // },
+          // function(response) {
+          //   console.log(response);
+          // });
+        };
         //
         // // Get Total Items
         // $scope.getTotalItems = function () {
