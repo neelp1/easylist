@@ -36,9 +36,15 @@ var insertDoc = function(data){
 // });
 
 app.post('/test', function(req, res) {
-  //TODO: use mongoclient or mongoose to send data to mongodb
-
-  console.log(req.body);
+  var jsonObject = req.body
+  // console.log(jsonObject['name']);
+  MongoClient.connect(url, function(err, db){
+    db.collection('test').insertOne(jsonObject,
+      function(err, result){
+        console.log("Inserted a document");
+        // callback();
+    });
+  });
   res.end();
 });
 // var insertDocument = function(db, callback){

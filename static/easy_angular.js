@@ -138,7 +138,7 @@
 
           console.log("data: " + $scope.itemName);
 
-          $http.post('http://localhost:8888/test', JSON.stringify({name:$scope.itemName}))
+          $http.post('http://localhost:8888/test', JSON.stringify({"name":$scope.itemName}))
           .then(function(data){
             console.log("successful!");
           })
