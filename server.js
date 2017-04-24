@@ -12,10 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 //connect to db and for get/post calls
 var url = 'mongodb://localhost:27017/test';
-mongoose.connect("mongodb://localhost:27017/test");
-var testDoc = mongoose.model('testdoc', {
-  name: String
-});
 
 var insertDoc = function(data){
   console.log(data);
@@ -29,12 +25,6 @@ var insertDoc = function(data){
   })
 };
 
-// app.post('/test', function (req, res) {
-// 	var jsonObject = JSON.stringify(req.body);
-//
-//   console.log(jsonObject);
-// });
-
 app.post('/test', function(req, res) {
   var jsonObject = req.body
   // console.log(jsonObject['name']);
@@ -43,40 +33,25 @@ app.post('/test', function(req, res) {
       function(err, result){
         console.log("Inserted a document");
         // callback();
-    });
+      });
+    db.close();
   });
   res.end();
 });
-// var insertDocument = function(db, callback){
-//   db.collection('names').insertOne({
-//     "name": "batman"
-//   },
-//   function(err, result){
-//     assert.equal(err, null);
-//     console.log("Inserted a document");
-//     callback();
-//   });
-// };
 
-// MongoClient.connect(url, function(err, db) {
-//   assert.equal(null, err);
-//   insertDocument(db, function(){
-//     db.close();
-//   });
-// });
-
-// MongoClient.connect(url, function(err, db) {
-//   assert.equal(null, err);
-//   console.log("Connected correctly to server.");
-//   db.close();
-// });
 app.get('/test', function(req, res){
-  testDoc.find(function(err, test){
-      if(err)
-        res.send(err)
-
-      res.json(test);
+  MongoClient.connect(url, function(err, db){
+    var cursor = db.collection('test').find();
+    var docs = []
+    cursor.each(function(err, doc){
+      if(doc != null){
+        docs.push(doc);
+      }else{
+        res.send(docs);
+      };
+    });
   });
+  // req.end();
 });
 
 app.get('/', function (req, res) {

@@ -32,7 +32,7 @@
         // });
         $http.get('/test')
           .success(function(data){
-            $scope.list = data;
+            // $scope.list = data;
             console.log(data)
           })
           .error(function(data) {
@@ -133,9 +133,6 @@
         //
         // //POST method after stringyfy
         $scope.postData = function(){
-          // var rawData = $scope.items
-          // var data = JSON.stringify(rawData[0]);
-
           console.log("data: " + $scope.itemName);
 
           $http.post('http://localhost:8888/test', JSON.stringify({"name":$scope.itemName}))
@@ -145,19 +142,6 @@
           .catch(function(err){
             console.log("post error");
           });
-          //NodeJS http POST
-          // $http({
-          //     url: '/test',
-          //     method: 'POST',
-          //     data: data,
-          //     header: 'Content-Type: application/json; charset=utf-8'
-          // })
-          // .then(function(response) {
-          //   console.log(response);
-          // },
-          // function(response) {
-          //   console.log(response);
-          // });
         };
         //
         // // Get Total Items
