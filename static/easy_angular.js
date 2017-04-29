@@ -33,7 +33,13 @@
         $http.get('/test')
           .success(function(data){
             // $scope.list = data;
-            console.log(data)
+            for(var i in data){
+              // console.log(data[i]['name']);
+              if(typeof data[i]['name'] !== "undefined"){
+                $scope.items.push(data[i]['name']);
+              }
+            }
+            console.log($scope.items);
           })
           .error(function(data) {
             console.log('Error: ' + data);
@@ -134,7 +140,7 @@
         // //POST method after stringyfy
         $scope.postData = function(){
           console.log("data: " + $scope.itemName);
-
+          //TODO: add to $scope.items
           $http.post('http://localhost:8888/test', JSON.stringify({"name":$scope.itemName}))
           .then(function(data){
             console.log("successful!");

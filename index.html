@@ -77,12 +77,21 @@
           </form>
           <!-- end: ADD items to the list-->
 
+          <div id="items" class="panel panel-default">
+            
+            <table>
+              <tr ng-repeat="name in items">
+                <td class="wide-td"> {{name}} </td>
+              </tr>
+            </table>
+          </div>
           <!-- begin: LIST OF CHECKED ITEMS -->
-          <!-- <div id="CheckedList" class="panel panel-default">
-              <div class="panel-heading">
+          <!-- <div id="CheckedList" class="panel panel-default"> -->
+
+              <!-- <div class="panel-heading">
                   <h3>Checked Items: {{getTotalCheckedItems()}}</h3>
-              </div>
-              <h4 ng-show="getTotalCheckedItems() > 0">Checked:</h4>
+              </div> -->
+              <!-- <h4 ng-show="getTotalCheckedItems() > 0">Checked:</h4>
               <table>
                   <tr ng-repeat="item in checked" class="item-checked">
                       <td class="wide-td"><b>amount:</b> {{item.amount}} </td>
@@ -91,8 +100,8 @@
                           <i>this item is checked!</i>
                       </td>
                   </tr>
-              </table>
-          </div> -->
+              </table> -->
+          <!-- </div> -->
           <!-- end: LIST OF CHECKED ITEMS -->
         </div>
     </div>
