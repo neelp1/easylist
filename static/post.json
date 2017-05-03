@@ -1,0 +1,17 @@
+{
+  "items":[
+    {
+      "amount": 1,
+      "name": "blah",
+      "showMe": true,
+      "dependentOn": ""
+    },
+    {
+      "amount": 1,
+      "name": "thingy",
+      "showMe": true,
+      "dependentOn": ""
+    }
+  ]
+
+}

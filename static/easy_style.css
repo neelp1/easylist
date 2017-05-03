@@ -9,10 +9,10 @@ i {
 }
 
 #MyApp {
-	
+
 }
 
-#AddItem, #CheckedList, #UncheckedList {
+#AddItem, #CheckedList, #UncheckedList, #items {
 	text-align: center;
 	/*border-style: solid;
 	border-width: 2px;*/
@@ -32,6 +32,11 @@ table {
 	float: none !important;
 }
 
+td {
+  text-align: center;
+  padding: 0px !important;
+}
+
 .item-unchecked td {
 	margin: 10px;
 	padding-top: 5px;
@@ -47,5 +52,5 @@ table {
   box-shadow: none;
   border: none;
   transform: none;
-  -webkit-transform: none; 
+  -webkit-transform: none;
 }
