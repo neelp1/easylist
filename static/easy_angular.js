@@ -30,7 +30,7 @@
         //     console.log($scope.items);
         //
         // });
-        $http.get('/test')
+        $http.get('/api/names')
           .success(function(data){
             // $scope.list = data;
             for(var i in data){
@@ -141,7 +141,8 @@
         $scope.postData = function(){
           console.log("data: " + $scope.itemName);
           //TODO: add to $scope.items
-          $http.post('http://localhost:8888/test', JSON.stringify({"name":$scope.itemName}))
+          $scope.items.push($scope.itemName);
+          $http.post('http://localhost:8888/api/names', JSON.stringify({"name":$scope.itemName}))
           .then(function(data){
             console.log("successful!");
           })

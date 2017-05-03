@@ -25,7 +25,7 @@ var insertDoc = function(data){
   })
 };
 
-app.post('/test', function(req, res) {
+app.post('/api/names', function(req, res) {
   var jsonObject = req.body
   // console.log(jsonObject['name']);
   MongoClient.connect(url, function(err, db){
@@ -39,7 +39,7 @@ app.post('/test', function(req, res) {
   res.end();
 });
 
-app.get('/test', function(req, res){
+app.get('/api/names', function(req, res){
   MongoClient.connect(url, function(err, db){
     var cursor = db.collection('test').find();
     var docs = []
@@ -52,6 +52,25 @@ app.get('/test', function(req, res){
     });
   });
   // req.end();
+});
+
+app.put('/api/names/:old-:new', function(req, res){
+  console.log(req.params);
+  // console.log(req.params['new']);
+  MongoClient.connect(url, function(err, db){
+    db.collection('test').updateOne(
+      {"name": req.params['old']},
+      {$set: {"name": req.params['new']}}
+    );
+    res.send('put complete');
+  });
+});
+
+app.delete('/api/names/:name', function(req, res){
+  MongoClient.connect(url, function(err, db){
+    db.collection('test').deleteOne(req.params);
+    res.send(req.params['name'] + ' deleted');
+  });
 });
 
 app.get('/', function (req, res) {

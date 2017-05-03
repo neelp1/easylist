@@ -32,6 +32,11 @@ table {
 	float: none !important;
 }
 
+td {
+  text-align: center;
+  padding: 0px !important;
+}
+
 .item-unchecked td {
 	margin: 10px;
 	padding-top: 5px;
