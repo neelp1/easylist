@@ -30,9 +30,3 @@ Add and get data:
 db.col.insert({"a":1})
 db.col.find()
 ```
-
-Connect using node:
-```
-var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/test");
-```
