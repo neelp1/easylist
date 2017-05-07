@@ -78,10 +78,10 @@
           <!-- end: ADD items to the list-->
 
           <div id="items" class="panel panel-default">
-            
+
             <table>
               <tr ng-repeat="name in items">
-                <td class="wide-td"> {{name}} </td>
+                <td class="wide-td"> {{name}} <button type="button" ng-click="deleteName(name)" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button></td>
               </tr>
             </table>
           </div>

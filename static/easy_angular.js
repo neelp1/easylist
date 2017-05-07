@@ -45,26 +45,41 @@
             console.log('Error: ' + data);
           });
         // Add a Item to the list
-        $scope.addItem = function(){
+        // $scope.addItem = function(){
 
             // $scope.currentDependent = $scope.dependent.name;
 
-            $scope.items.push({
+            // $scope.items.push({
                 // amount: $scope.itemAmount,
-                name: $scope.itemName
+                // name: $scope.itemName
                 // showMe: false,
                 // dependentOn: $scope.currentDependent
-            });
+            // });
 
-            $scope.postData();
+            // $scope.postData();
 
             // Clear input fields after push
             // $scope.itemAmount = "";
             // $scope.itemName = "";
             // $scope.dependent = {amount:0,name:"no dependency",showMe:false,dependentOn:""};
             // $scope.currentDependent = "";
+        // };
+        $scope.deleteName = function(name){
+          for(var i in $scope.items){
+            if($scope.items[i] === name){
+              // console.log("deleted " + name);
+              var index = $scope.items.indexOf(name);
+              $scope.items.splice(index, 1);
+              $http.delete('/api/names/' + name)
+              .then(function(data){
+                console.log("success delete");
+              })
+              .catch(function(err){
+                console.log(err);
+              });
+            }
+          }
         };
-
         // $scope.showMessage = function(){
         //     $scope.show = true;
         // };
@@ -137,10 +152,9 @@
         //     $scope.uncheckedName = "";
         // };
         //
-        // //POST method after stringyfy
+        //POST method after stringyfy
         $scope.postData = function(){
           console.log("data: " + $scope.itemName);
-          //TODO: add to $scope.items
           $scope.items.push($scope.itemName);
           $http.post('http://localhost:8888/api/names', JSON.stringify({"name":$scope.itemName}))
           .then(function(data){
