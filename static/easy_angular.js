@@ -158,6 +158,8 @@
           $scope.items.push($scope.itemName);
           $http.post('http://localhost:8888/api/names', JSON.stringify({"name":$scope.itemName}))
           .then(function(data){
+            $scope.nameForm.itemName.$setPristine(true);
+            $scope.itemName = '';
             console.log("successful!");
           })
           .catch(function(err){
