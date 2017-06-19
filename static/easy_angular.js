@@ -176,5 +176,9 @@
         // $scope.getTotalCheckedItems = function () {
         //     return $scope.checked.length;
         // };
+        $scope.testFunction = function(num){
+          return 2 * num;
+        };
+
     });
 })();

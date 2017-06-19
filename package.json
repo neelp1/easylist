@@ -11,10 +11,11 @@
   "author": "Neel Patel",
   "license": "ISC",
   "dependencies": {
-    "assert": "^1.4.1",
-    "body-parser": "~1.10.1",
-    "express": ">4.1",
-    "mongodb": "^2.2.25",
+    "assert": "1.4.1",
+    "body-parser": "1.17.2",
+    "express": "4.15.3",
+    "mongodb": "2.2.28",
+    "karma": "1.7.0",
     "mocha": "3.3.0"
   }
 }
