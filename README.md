@@ -3,11 +3,11 @@
 Simple list application.
 
 ## Usage
-
+Start:
 ```
 npm install
 ```
-
+Test:
 ```
 npm run start-db
 ```

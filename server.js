@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');//object modeling
+// var mongoose = require('mongoose');//object modeling
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 

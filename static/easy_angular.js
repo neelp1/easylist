@@ -1,9 +1,8 @@
-(function(){
-    var app = angular.module("MyApp", []);
+var app = angular.module("MyApp", []);
 
-    app.controller("mainController",
+app.controller("mainController",
 
-    function($scope, $http) {
+  function($scope, $http) {
 
         // Item List Arrays
         $scope.items = [];
@@ -181,4 +180,3 @@
         };
 
     });
-})();
