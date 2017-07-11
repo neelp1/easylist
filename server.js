@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');//object modeling
+// var mongoose = require('mongoose');//object modeling
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
@@ -39,10 +39,6 @@ app.post('/api/names', function(req, res) {
   res.end();
 });
 
-// app.post('/api/names?name=:name', function(req, res){
-//   console.log(req.params);
-// });
-
 app.get('/api/names', function(req, res){
   MongoClient.connect(url, function(err, db){
     var cursor = db.collection('test').find();
@@ -78,7 +74,6 @@ app.delete('/api/names/:name', function(req, res){
 });
 
 app.get('/', function (req, res) {
-  //res.send('Hello World!');
   res.sendFile(__dirname + '/index.html');
 });
 

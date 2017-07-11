@@ -2,6 +2,7 @@
 <html ng-app="MyApp">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+    <!-- <script src="/node_modules/angular/angular.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
 
@@ -64,7 +65,7 @@
                   <input value="1" type="number" placeholder="1" ng-model="itemAmount" ng-maxlength="2" required>
               </div> -->
               <div ng-form="nameForm" class="form-group">
-                  <input value="" type="text" placeholder="Name of Item" ng-model="itemName" ng-maxlength="10" required>
+                  <input name="itemName" value="" type="text" placeholder="Name of Item" ng-model="itemName" ng-maxlength="10" required>
               </div>
               <!-- <div ng-form="dependentForm">
                   <select ng-model="dependent" ng-options="item.name for item in items" required>
@@ -78,10 +79,10 @@
           <!-- end: ADD items to the list-->
 
           <div id="items" class="panel panel-default">
-            
+
             <table>
               <tr ng-repeat="name in items">
-                <td class="wide-td"> {{name}} </td>
+                <td class="wide-td"> {{name}} <button type="button" ng-click="deleteName(name)" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button></td>
               </tr>
             </table>
           </div>
