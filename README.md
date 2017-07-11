@@ -3,17 +3,23 @@
 Simple list application.
 
 ## Usage
-Start:
+Create or restart my-mongo container before doing the following steps.
+
+Install:
 ```
 npm install
 ```
-Test:
+Start:
 ```
-npm run start-db
+npm start
+```
+Unit Test:
+```
+npm test
 ```
 
 ## mongodb
-### Create
+### Create or restart
 
 Create a mongodb container:
 ```

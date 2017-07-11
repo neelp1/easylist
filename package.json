@@ -4,10 +4,10 @@
   "description": "Shopping list app",
   "main": "easy_server.js",
   "scripts": {
-    "test": "mocha",
-    "test:jasmine": "jasmine",
-    "start": "node easy_server.js",
-    "start-db": "node server.js"
+    "test:mocha": "mocha",
+    "test": "jasmine spec/appSpec.js",
+    "start:old": "node easy_server.js",
+    "start": "node server.js"
   },
   "author": "Neel Patel",
   "license": "ISC",
