@@ -2,7 +2,7 @@
   "name": "easylist",
   "version": "1.0.0",
   "description": "Shopping list app",
-  "main": "easy_server.js",
+  "main": "server.js",
   "scripts": {
     "test:mocha": "mocha",
     "test": "jasmine spec/appSpec.js",
