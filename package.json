@@ -17,7 +17,7 @@
     "assert": "1.4.1",
     "body-parser": "1.17.2",
     "express": "4.15.3",
-    "mongodb": "3.6.1",
+    "mongodb": "3.6.10",
     "karma": "1.7.0",
     "mocha": "3.3.0",
     "jasmine": "2.6.0"
