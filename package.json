@@ -16,7 +16,7 @@
     "angular-mocks": "1.6.4",
     "assert": "1.4.1",
     "body-parser": "1.17.2",
-    "express": "4.15.3",
+    "express": "4.19.2",
     "mongodb": "3.6.10",
     "karma": "1.7.0",
     "mocha": "3.3.0",
