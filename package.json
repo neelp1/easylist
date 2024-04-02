@@ -18,7 +18,7 @@
     "body-parser": "1.17.2",
     "express": "4.19.2",
     "mongodb": "3.6.10",
-    "karma": "1.7.0",
+    "karma": "6.3.16",
     "mocha": "3.3.0",
     "jasmine": "2.6.0"
   },
